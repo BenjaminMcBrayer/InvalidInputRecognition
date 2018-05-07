@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -67,14 +65,15 @@ public class InvalidInputRecognition {
 	}
 
 	public static boolean validateDate(String userDate) {
-		Pattern p = Pattern.compile("[0-1][0-9]/[0-3][0-9]/[0-9]{2}(?:[0-9]{2})?"); // This does not prevent the user
-																					// from entering, for example,
-																					// 12/32/1980 and receiving the
-																					// message "Date is valid." Rather
-																					// than regex, something like
-																					// "LocalDate.parse(firstUserInput,
-																					// DateTimeFormatter.BASIC_ISO_DATE);"
-																					// might be better.
+		Pattern p = Pattern.compile("[0-1][0-9]/[0-3][0-9]/[0-9]{2}(?:[0-9]{2})?");
+		// This does not prevent the user
+		// from entering, for example,
+		// 12/32/1980 and receiving the
+		// message "Date is valid." Rather
+		// than regex, something like
+		// "LocalDate.parse(firstUserInput,
+		// DateTimeFormatter.BASIC_ISO_DATE);"
+		// might be better.
 		Matcher m = p.matcher(userDate);
 		if (m.matches()) {
 			System.out.println("Date is valid.");
