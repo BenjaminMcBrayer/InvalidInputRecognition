@@ -29,7 +29,7 @@ public class InvalidInputRecognition {
 	}
 
 	public static boolean validateName(String userName) {
-		Pattern p = Pattern.compile("^[a-zA-Z]+$");
+		Pattern p = Pattern.compile("^[a-zA-Z]{1,30}+$");
 		Matcher m = p.matcher(userName);
 		if (m.matches()) {
 			System.out.println("Name is valid.");
@@ -53,6 +53,7 @@ public class InvalidInputRecognition {
 	}
 
 	public static boolean validatePhoneNumber(String userPhoneNumber) {
+		//Pattern p = Pattern.compile("^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$");
 		Pattern p = Pattern.compile("([2-9][0-8][0-9])\\W*([2-9][0-9]{2})\\W*([0-9]{4})(\\se?x?t?(\\d*))?");
 		Matcher m = p.matcher(userPhoneNumber);
 		if (m.matches()) {
